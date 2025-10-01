@@ -3,189 +3,285 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anonimizador BR – Página de Vendas</title>
-  <meta name="description" content="Anonimize TXT, DOCX e PDF com tarja preta real em 1 clique. Portátil, rápido e sem Python. Preço de lançamento R$ 97,00." />
-  <meta property="og:title" content="Anonimizador BR – Anonimize TXT, DOCX e PDF em 1 clique" />
-  <meta property="og:description" content="Padrões BR (CPF, CNPJ, RG…), blacklist/whitelist, hash consistente e redaction em PDF. Lançamento R$ 97,00." />
+  <title>Anonimizador BR — LGPD na prática (TXT, DOCX, PDF)</title>
+  <meta name="description" content="Remova dados sensíveis (CPF, CNPJ, RG, e-mails, telefones, valores etc.) de TXT, DOCX e PDF (tarja preta). Portátil, rápido e simples.">
+  <link rel="icon" href="./splash.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Anonimizador BR — LGPD na prática" />
+  <meta property="og:description" content="Anonimize documentos em 1 clique: TXT, DOCX e PDF com redaction real. Portátil, rápido e profissional." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:image" content="./splash.png" />
+  <meta property="og:url" content="https://gibagomes.github.io/anonimizador-br-site/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anonimizador BR — LGPD na prática">
+  <meta name="twitter:description" content="Anonimize TXT, DOCX e PDF (tarja preta) em 1 clique.">
+  <meta name="twitter:image" content="./splash.png">
+
+  <!-- JSON-LD: Product/Offer -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Anonimizador BR",
+    "description": "Aplicativo portátil para anonimização de documentos (TXT, DOCX, PDF com tarja preta) focado em LGPD.",
+    "image": "https://gibagomes.github.io/anonimizador-br-site/splash.png",
+    "brand": {"@type": "Brand", "name": "Fábrica de Softwares"},
+    "offers": {
+      "@type": "Offer",
+      "price": "97.00",
+      "priceCurrency": "BRL",
+      "url": "https://pay.hotmart.com",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <!-- Estilos: moderno, acessível e leve -->
   <style>
     :root{
-      --bg:#0b0f17;--bg2:#101624;--card:#0f1626;--text:#eaf0ff;--muted:#9fb0d1;--accent:#7dd3fc;--brand:#22c55e;--danger:#ef4444;--border:#1f2a44;--glow:0 0 0 1px rgba(125,211,252,.15),0 10px 30px rgba(125,211,252,.08);
+      --bg:#0f1117; --card:#161a22; --muted:#a7b0bd; --fg:#e6e6e6;
+      --acc:#4a90e2; --acc-2:#22c55e; --stroke:#232733; --danger:#ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius:18px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),#0b1020 50%,#0a0f1a);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Helvetica,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin-inline:auto;padding:24px}
-    header{position:sticky;top:0;z-index:30;background:rgba(11,15,23,.7);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--border)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
-    .logo-badge{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 210deg,#1f2a44,#0ea5e9,#22c55e);box-shadow:var(--glow)}
-    .btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--border);padding:12px 18px;border-radius:12px;background:linear-gradient(180deg,#162238,#0e1627);box-shadow:var(--glow);transition:.2s}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(34,197,94,.2),0 12px 40px rgba(34,197,94,.18)}
-    .btn.primary{background:linear-gradient(180deg,#1d3b2b,#143a27);border-color:#1d3b2b}
-    .btn .price{background:#143a27;border:1px solid #1f2a44;padding:4px 8px;border-radius:8px;font-weight:700}
-
-    /* hero */
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:48px 0}
-    .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:8px 0 14px}
-    .hero p{color:var(--muted);font-size:clamp(15px,2.2vw,18px)}
-    .pill{display:inline-flex;gap:8px;align-items:center;background:#0e1627;border:1px solid var(--border);padding:6px 10px;border-radius:999px;color:#cfe5ff;box-shadow:var(--glow)}
-    .card{background:linear-gradient(180deg,var(--card),#0e1525);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--glow)}
-    .hero .card{aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:center;gap:10px}
-    .hero .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#0b1220;border:1px solid var(--border);padding:6px 10px;border-radius:10px;color:#cfe5ff;display:inline-flex;gap:10px;align-items:center}
-
-    /* grid features */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .feat{padding:16px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#0d1426,#0d1321)}
-    .feat h3{margin:8px 0 6px;font-size:18px}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.55 "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial}
+    a{color:var(--acc);text-decoration:none}
+    a:hover{opacity:.9}
+    img{max-width:100%;height:auto}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;border:none;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;transition:.2s all}
+    .btn-primary{background:var(--acc);color:#fff;box-shadow:var(--shadow)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-success{background:var(--acc-2);color:#0b0f14;box-shadow:var(--shadow)}
+    .btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--stroke)}
+    .badge{display:inline-block;background:#22304a;border:1px solid #2b3650;color:#cfe0ff;padding:4px 10px;border-radius:999px;font-size:.85rem}
     .muted{color:var(--muted)}
-
-    /* sections */
-    section{padding:42px 0}
-    h2{font-size:clamp(22px,3.6vw,30px);margin:0 0 16px}
-
-    /* price */
-    .pricebox{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#0e1728,#0d1626)}
-    .price-big{font-weight:800;font-size:clamp(26px,4vw,34px);color:#a7f3d0}
-    .old{color:#94a3b8;text-decoration:line-through}
-
-    /* lists */
-    ul{margin:10px 0 0 18px}
-
-    /* testimonials */
-    .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .t{padding:16px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#0d1426,#0d1321)}
-    .t b{display:block;margin-bottom:6px}
-
-    /* faq */
-    details{border:1px solid var(--border);border-radius:14px;padding:12px 14px;background:linear-gradient(180deg,#0d1426,#0d1321)}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:600}
-
-    footer{border-top:1px solid var(--border);padding:26px 0;color:#8aa0c7}
-
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .tgrid{grid-template-columns:1fr}
-    }
+    .section{padding:64px 0}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:28px}
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width: 900px){.grid-3{grid-template-columns:1fr 1fr}}
+    @media (max-width: 640px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    /* Header */
+    .header{position:sticky;top:0;z-index:50;background:rgba(15,17,23,.75);backdrop-filter: blur(10px);border-bottom:1px solid var(--stroke)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;align-items:center;gap:.7rem}
+    .logo img{width:36px;height:36px;border-radius:8px;border:1px solid var(--stroke)}
+    .cta-row{display:flex;gap:10px}
+    /* Hero */
+    .hero{padding-top:56px;padding-bottom:24px}
+    .hero-wrap{display:grid;gap:24px;grid-template-columns: 1.1fr .9fr;align-items:center}
+    .hero h1{font-size:40px;line-height:1.15;margin:.3rem 0}
+    .hero p{font-size:18px;margin:0}
+    .floating{border-radius:var(--radius);overflow:hidden;border:1px solid var(--stroke);box-shadow:var(--shadow)}
+    .price{display:flex;align-items:center;gap:10px;margin-top:8px}
+    .price s{color:#98a2b3}
+    .price b{font-size:22px}
+    .mini-ui{display:flex;gap:8px;align-items:center;font-family:Consolas,monospace;background:#0e131b;border:1px solid var(--stroke);border-radius:12px;padding:10px 14px}
+    .mini-ui .pill{background:#1e2430;color:#cfe0ff;border:1px solid #2a3242;border-radius:999px;padding:4px 10px}
+    /* Sections */
+    h2{font-size:28px;margin:0 0 10px}
+    h3{font-size:18px;margin:0 0 6px}
+    .kicker{letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:#cfe0ff}
+    /* FAQ */
+    details{border:1px solid var(--stroke);border-radius:12px;padding:14px 16px;background:var(--card)}
+    details+details{margin-top:12px}
+    summary{cursor:pointer;font-weight:700}
+    summary::-webkit-details-marker{display:none}
+    /* Sticky footer CTA on mobile */
+    .mobile-cta{position:fixed;bottom:12px;left:0;right:0;z-index:60}
+    .mobile-cta .bar{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--stroke);border-radius:999px;padding:10px;display:flex;gap:10px;justify-content:center}
+    @media (min-width: 801px){.mobile-cta{display:none}}
+    footer{border-top:1px solid var(--stroke);padding:24px 0;color:var(--muted);font-size:.95rem}
+    /* Anim */
+    .fade-in{animation:fade .5s ease-out both}
+    @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="logo"><span class="logo-badge"></span> Anonimizador BR</div>
-      <a class="btn primary" href="https://pay.hotmart.com/W102103300S?off=fkc28s2t" target="_blank" rel="noopener noreferrer" title="Comprar agora">
-        <span>Comprar agora</span>
-        <span class="price">R$ 97,00</span>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#top" class="logo">
+        <img src="./splash.png" alt="Anonimizador BR">
+        <strong>Anonimizador BR</strong>
       </a>
+      <nav class="cta-row">
+        <a class="btn btn-ghost" href="#recursos">Ver recursos</a>
+        <a class="btn btn-success" href="https://pay.hotmart.com" target="_blank" rel="noopener">Comprar — R$ 97</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <!-- HERO -->
-    <section class="hero">
+  <!-- Hero -->
+  <main id="top" class="hero section">
+    <div class="container hero-wrap">
+      <div class="fade-in">
+        <span class="badge">LGPD na prática • TXT • DOCX • PDF (tarja preta)</span>
+        <h1>Anonimize documentos em 1 clique — rápido, portátil e profissional</h1>
+        <p>Remova dados sensíveis (CPF, CNPJ, RG, e-mails, telefones, valores e mais) de <strong>TXT</strong>, <strong>DOCX</strong> (mantendo estrutura) e <strong>PDF</strong> (redaction real). Sem instalar Python.</p>
+        <div class="price">
+          <s>R$ 147,00</s> <b>Lançamento: R$ 97,00</b> <span class="muted">Pagamento único • Garantia 7 dias</span>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-success" href="https://pay.hotmart.com" target="_blank" rel="noopener">Quero agora — R$ 97</a>
+          <a class="btn btn-primary" href="#como-funciona">Como funciona</a>
+        </div>
+        <div class="mini-ui" style="margin-top:16px">
+          <span class="pill">Adicionar pasta</span>
+          <span>▶</span>
+          <span class="pill">Iniciar anonimização</span>
+          <span class="pill">Preview antes/depois</span>
+        </div>
+        <p class="muted" style="margin-top:8px">Preview antes/depois • Log detalhado • Tema dark • Splash</p>
+      </div>
+
+      <div class="floating fade-in">
+        <img src="./splash.png" alt="Captura do Anonimizador BR">
+      </div>
+    </div>
+  </main>
+
+  <!-- Recursos -->
+  <section id="recursos" class="section">
+    <div class="container">
+      <h2 class="kicker">Recursos</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Padrões BR prontos</h3>
+          <p class="muted">CPF, CNPJ, RG, CEP, PIS/NIS, E-mail, Telefone, URL, IP, Data, Valor R$, CNJ simples.</p>
+        </div>
+        <div class="card">
+          <h3>PDF com tarja preta</h3>
+          <p class="muted">Redaction real via PyMuPDF. Gera um novo PDF seguro para compartilhar.</p>
+        </div>
+        <div class="card">
+          <h3>DOCX preservando estrutura</h3>
+          <p class="muted">Anonimiza parágrafos e tabelas mantendo o layout do Word.</p>
+        </div>
+        <div class="card">
+          <h3>Estratégias flexíveis</h3>
+          <p class="muted">[MASK], [POR TIPO] (ex.: [CPF]) ou HASH consistente por valor.</p>
+        </div>
+        <div class="card">
+          <h3>Listas personalizadas</h3>
+          <p class="muted">Blacklist (sempre mascarar) e Whitelist (linhas intocáveis) para controle fino.</p>
+        </div>
+        <div class="card">
+          <h3>Portátil de verdade</h3>
+          <p class="muted">Gere o .exe e rode até de pendrive. Sem instalação de Python.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como funciona -->
+  <section id="como-funciona" class="section">
+    <div class="container grid grid-2">
       <div>
-        <span class="pill">🔒 LGPD na prática • TXT • DOCX • PDF (tarja preta)</span>
-        <h1>Anonimize documentos em <u>1 clique</u>: rápido, portátil e profissional</h1>
-        <p>Remova dados sensíveis (CPF, CNPJ, RG, e-mails, telefones, valores e mais) de arquivos <b>TXT</b>, <b>DOCX</b> (mantendo a estrutura) e <b>PDF</b> (com redaction – tarja preta real). Não precisa instalar Python.</p>
-        <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap">
-          <a class="btn primary" href="#comprar"><b>Quero agora</b> — <span class="price">R$ 97,00</span></a>
-          <a class="btn" href=href="https://pay.hotmart.com/W102103300S?off=fkc28s2t" target="_blank" rel="noopener noreferrer" >Ver recursos</a>
+        <h2>Como funciona</h2>
+        <ol class="muted" style="padding-left:18px">
+          <li>Adicione arquivos ou uma pasta (TXT, DOCX e PDF com texto pesquisável)</li>
+          <li>Selecione os padrões BR e a estratégia de anonimização</li>
+          <li>Gere um Preview antes/depois e clique em <b>Iniciar</b></li>
+        </ol>
+        <p class="muted">PDFs escaneados (imagem) requerem OCR externo (ex.: Tesseract).</p>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="https://pay.hotmart.com" target="_blank" rel="noopener">Comprar agora</a>
+          <a class="btn btn-ghost" href="#faq">Perguntas frequentes</a>
         </div>
       </div>
       <div class="card">
-        <div class="kbd">> Adicionar pasta  ▶ Iniciar anonimização</div>
-        <div class="muted">Pré-visualização antes/depois • Log detalhado • Tema Dark • Splash</div>
-        <div class="muted">Padrões BR, Blacklist/Whitelist, Estratégias: [MASK] / [TIPO] / HASH</div>
+        <h3 style="margin-top:0">Para quem é</h3>
+        <ul class="muted" style="padding-left:18px">
+          <li>Advogados e escritórios</li>
+          <li>Auditoria, perícia e controladoria</li>
+          <li>Compliance e setor público</li>
+          <li>Pesquisadores e estudantes</li>
+        </ul>
+        <h3>Você recebe</h3>
+        <ul class="muted" style="padding-left:18px">
+          <li>Aplicativo Anonimizador BR (.exe para Windows)</li>
+          <li>Manual em PDF com exemplos</li>
+          <li>Modelos de Blacklist/Whitelist</li>
+          <li>Checklist de anonimização segura</li>
+          <li>Suporte por e-mail/WhatsApp</li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- RECURSOS -->
-    <section id="recursos">
-      <h2>Recursos que fazem a diferença</h2>
-      <div class="grid">
-        <div class="feat"><h3>🧩 Padrões BR prontos</h3><p class="muted">CPF, CNPJ, RG, CNH, CEP, PIS/NIS, E-mail, Telefone, URL, IP, Data, Valor R$, CNJ simples.</p></div>
-        <div class="feat"><h3>🖤 PDF com tarja preta</h3><p class="muted">Aplica redaction real via PyMuPDF e salva um novo PDF seguro para compartilhar.</p></div>
-        <div class="feat"><h3>📝 DOCX preservando estrutura</h3><p class="muted">Anonimiza parágrafos e tabelas mantendo o layout do Word.</p></div>
-        <div class="feat"><h3>🎛️ Estratégias flexíveis</h3><p class="muted">[MASK] único, [POR TIPO] (ex.: [CPF]) ou HASH consistente por valor.</p></div>
-        <div class="feat"><h3>🧱 Listas personalizadas</h3><p class="muted">Blacklist (sempre mascarar) e Whitelist (linhas intocáveis) para controle fino.</p></div>
-        <div class="feat"><h3>💾 Portátil de verdade</h3><p class="muted">Gere o .exe e rode até de pendrive. Sem instalação de Python.</p></div>
-      </div>
-    </section>
-
-    <!-- COMO FUNCIONA -->
-    <section>
-      <h2>Como funciona</h2>
-      <ol>
-        <li>Adicione arquivos ou uma pasta (TXT, DOCX e PDF com texto pesquisável)</li>
-        <li>Selecione os padrões BR e a estratégia de anonimização</li>
-        <li>Gere um Preview antes/depois e clique em <b>Iniciar</b></li>
-      </ol>
-      <p class="muted">PDFs escaneados (imagem) requerem OCR externo antes (ex.: Tesseract).</p>
-    </section>
-
-    <!-- PARA QUEM É -->
-    <section>
-      <h2>Para quem é</h2>
-      <ul>
-        <li>Advogados e escritórios</li>
-        <li>Auditoria, perícia e controladoria</li>
-        <li>Compliance e setor público</li>
-        <li>Pesquisadores e estudantes</li>
-      </ul>
-    </section>
-
-    <!-- O QUE RECEBE -->
-    <section>
-      <h2>Você recebe</h2>
-      <ul>
-        <li>Aplicativo Anonimizador BR (.exe para Windows)</li>
-        <li>Manual em PDF com passo a passo e exemplos</li>
-        <li>Modelos de Blacklist/Whitelist</li>
-        <li>Checklist de anonimização segura</li>
-        <li>Suporte por e-mail/WhatsApp</li>
-      </ul>
-    </section>
-
-    <!-- PREÇO -->
-    <section id="comprar">
-      <div class="pricebox">
-        <div>
-          <div class="muted">Preço oficial <span class="old">R$ 147,00</span></div>
-          <div class="price-big">Lançamento: R$ 97,00</div>
-          <div class="muted">Pagamento único • Garantia Hotmart 7 dias</div>
-        </div>
-        <a class="btn primary" href="https://pay.hotmart.com/W102103300S?off=fkc28s2t" target="_blank" rel="noopener noreferrer"><b>Comprar agora</b> — <span class="price">R$ 97,00</span></a>
-      </div>
-    </section>
-
-    <!-- DEPOIMENTOS -->
-    <section>
+  <!-- Depoimentos -->
+  <section class="section">
+    <div class="container">
       <h2>O que dizem os usuários</h2>
-      <div class="tgrid">
-        <div class="t"><b>Ricardo • Auditor</b><span class="muted">“Antes levava horas para higienizar relatórios. Agora faço em minutos.”</span></div>
-        <div class="t"><b>Ana • Compliance</b><span class="muted">“Prático e direto. Resolve a LGPD do dia a dia com previsibilidade.”</span></div>
-        <div class="t"><b>João • Advogado</b><span class="muted">“Entreguei documentos no processo sem expor dados. Salvou tempo.”</span></div>
+      <div class="grid grid-3">
+        <div class="card"><p><b>Ricardo • Auditor</b><br>“Antes levava horas para higienizar relatórios. Agora faço em minutos.”</p></div>
+        <div class="card"><p><b>Ana • Compliance</b><br>“Prático e direto. Resolve a LGPD do dia a dia com previsibilidade.”</p></div>
+        <div class="card"><p><b>João • Advogado</b><br>“Entreguei documentos no processo sem expor dados. Salvou tempo.”</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section>
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
       <h2>Perguntas frequentes</h2>
-      <details><summary>Preciso instalar Python?</summary><p class="muted">Não. O executável é portátil (one-file) e roda direto.</p></details>
-      <details><summary>Funciona offline?</summary><p class="muted">Sim. Todo o processamento é local, sem internet.</p></details>
-      <details><summary>PDF escaneado funciona?</summary><p class="muted">Use OCR antes (ex.: Tesseract). O app avisa quando não há texto pesquisável.</p></details>
-      <details><summary>Compatibilidade</summary><p class="muted">Windows 10/11 (64-bit). Pode rodar de pendrive.</p></details>
-      <details><summary>Garantia e suporte</summary><p class="muted">Garantia Hotmart de 7 dias. Suporte básico por e-mail/WhatsApp.</p></details>
-    </section>
-  </main>
+      <details>
+        <summary>Preciso instalar Python?</summary>
+        <p class="muted">Não. O executável é portátil (one-file) e roda direto.</p>
+      </details>
+      <details>
+        <summary>Funciona offline?</summary>
+        <p class="muted">Sim. Todo o processamento é local, sem internet.</p>
+      </details>
+      <details>
+        <summary>PDF escaneado funciona?</summary>
+        <p class="muted">Use OCR antes (ex.: Tesseract). O app avisa quando não há texto pesquisável.</p>
+      </details>
+      <details>
+        <summary>Compatibilidade</summary>
+        <p class="muted">Windows 10/11 (64-bit). Pode rodar de pendrive.</p>
+      </details>
+      <details>
+        <summary>Garantia e suporte</summary>
+        <p class="muted">Garantia Hotmart de 7 dias. Suporte básico por e-mail/WhatsApp.</p>
+      </details>
+    </div>
+  </section>
 
+  <!-- CTA Mobile fixo -->
+  <div class="mobile-cta">
+    <div class="bar">
+      <a class="btn btn-success" href="https://pay.hotmart.com" target="_blank" rel="noopener">Comprar — R$ 97</a>
+      <a class="btn btn-primary" href="#recursos">Ver recursos</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <div class="wrap">
-      © 2025 • Anonimizador BR • Fábrica de Softwares. Todos os direitos reservados.
+    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>© 2025 • Anonimizador BR • Fábrica de Softwares</div>
+      <div class="muted">LGPD na prática • TXT • DOCX • PDF</div>
     </div>
   </footer>
+
+  <!-- JS: Smooth scroll simples -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          const el = document.querySelector(id);
+          if(el){ e.preventDefault(); el.scrollIntoView({behavior:"smooth", block:"start"}); }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
