@@ -148,37 +148,112 @@
   </main>
 
   <!-- Recursos -->
-  <section id="recursos" class="section">
-    <div class="container">
-      <h2 class="kicker">Recursos</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Padrões BR prontos</h3>
-          <p class="muted">CPF, CNPJ, RG, CEP, PIS/NIS, E-mail, Telefone, URL, IP, Data, Valor R$, CNJ simples.</p>
-        </div>
-        <div class="card">
-          <h3>PDF com tarja preta</h3>
-          <p class="muted">Redaction real via PyMuPDF. Gera um novo PDF seguro para compartilhar.</p>
-        </div>
-        <div class="card">
-          <h3>DOCX preservando estrutura</h3>
-          <p class="muted">Anonimiza parágrafos e tabelas mantendo o layout do Word.</p>
-        </div>
-        <div class="card">
-          <h3>Estratégias flexíveis</h3>
-          <p class="muted">[MASK], [POR TIPO] (ex.: [CPF]) ou HASH consistente por valor.</p>
-        </div>
-        <div class="card">
-          <h3>Listas personalizadas</h3>
-          <p class="muted">Blacklist (sempre mascarar) e Whitelist (linhas intocáveis) para controle fino.</p>
-        </div>
-        <div class="card">
-          <h3>Portátil de verdade</h3>
-          <p class="muted">Gere o .exe e rode até de pendrive. Sem instalação de Python.</p>
-        </div>
+ <section id="recursos" class="section">
+  <div class="container">
+    <h2 class="kicker">Recursos do Anonimizador BR</h2>
+    <p class="muted" style="margin:6px 0 22px">
+      Tudo que você precisa para colocar a LGPD em prática no dia a dia — rápido, portátil e simples.
+    </p>
+
+    <!-- Blocos principais -->
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>🧩 Padrões BR prontos</h3>
+        <p class="muted">CPF, CNPJ, RG, CEP, PIS/NIS, E-mail, Telefone, URL, IP, Data, Valor R$, CNJ simples.</p>
+        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+          <li>Regex robustos (separadores, espaços, variações)</li>
+          <li>Atualizáveis em arquivo único</li>
+          <li>Compatível com acentuação e NBSP</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>📄 DOCX preservando estrutura</h3>
+        <p class="muted">Anonimiza parágrafos e tabelas mantendo o layout do Word.</p>
+        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+          <li>Processa corpo, cabeçalhos e rodapés</li>
+          <li>Correção de runs (quebras internas do Word)</li>
+          <li>Gera <code>_anon.docx</code> sem sobrescrever</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🧱 PDF com tarja preta</h3>
+        <p class="muted">Redaction real via PyMuPDF: oculta o texto, não apenas coloca uma imagem por cima.</p>
+        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+          <li>Busca trechos e aplica redactions por página</li>
+          <li>Arquivo final “seguro para compartilhar”</li>
+          <li>Aviso quando o PDF não tem texto pesquisável</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>📊 Excel/CSV por colunas</h3>
+        <p class="muted">Selecione colunas sensíveis e aplique a estratégia desejada.</p>
+        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+          <li>Leitura <code>.xlsx</code> e <code>.csv</code></li>
+          <li>Escrita mantendo planilhas</li>
+          <li>UTF-8 com BOM para compatibilidade</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🎯 Estratégias flexíveis</h3>
+        <p class="muted">Escolha como quer substituir:</p>
+        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+          <li><b>[MASK]</b> — máscara única</li>
+          <li><b>[POR TIPO]</b> — ex.: <code>[CPF]</code></li>
+          <li><b>HASH</b> — mesmo valor, mesma saída</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>📝 Listas personalizadas</h3>
+        <p class="muted">Refine o controle com <b>Blacklist</b> (sempre mascarar) e <b>Whitelist</b> (linhas intocáveis).</p>
+        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+          <li>Linhas limpas (sem vazios que “bloqueiam” tudo)</li>
+          <li>Aplicação combinada com os padrões BR</li>
+          <li>Ideal para termos internos e nomes específicos</li>
+        </ul>
       </div>
     </div>
-  </section>
+
+    <!-- Linha 2: performance/UX/portabilidade -->
+    <div class="grid grid-3" style="margin-top:18px">
+      <div class="card">
+        <h3>⚡ Performance e robustez</h3>
+        <ul class="muted" style="padding-left:18px;margin:6px 0 0">
+          <li>Normalização de texto (NFKC, NBSP, zero-width)</li>
+          <li>Tratamento de erros de regex com feedback</li>
+          <li>Logs contínuos e barra de progresso</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🌓 UX focada no fluxo</h3>
+        <ul class="muted" style="padding-left:18px;margin:6px 0 0">
+          <li>Tema escuro moderno</li>
+          <li>Preview antes/depois com divisor ajustável</li>
+          <li>Botão “Iniciar” sempre visível</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🧳 Portátil de verdade</h3>
+        <ul class="muted" style="padding-left:18px;margin:6px 0 0">
+          <li>Executável único (one-file)</li>
+          <li>Roda de pendrive (Windows 10/11)</li>
+          <li>Sem instalar Python</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA secundário -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px">
+      <a class="btn btn-success" href="https://pay.hotmart.com" target="_blank" rel="noopener">Comprar — R$ 97</a>
+      <a class="btn btn-primary" href="#como-funciona">Ver como funciona</a>
+    </div>
+  </div>
+</section>
+
 
   <!-- Como funciona -->
   <section id="como-funciona" class="section">
