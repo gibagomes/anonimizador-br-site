@@ -3,31 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data anonymization BR — LGPD na prática (TXT, DOCX, PDF)</title>
-  <meta name="description" content="Remova dados sensíveis (CPF, CNPJ, RG, e-mails, telefones, valores etc.) de TXT, DOCX e PDF (tarja preta). Portátil, rápido e simples.">
+  <title>Anonimizador BR — proteja dados sensíveis em TXT, DOCX, PDF, XLSX e CSV</title>
+  <meta name="description" content="Anonimize arquivos TXT, DOCX, PDF, XLSX e CSV com blacklist simples. O programa abre maximizado, preserva o original e abre automaticamente o arquivo anonimizado ao concluir.">
   <link rel="icon" href="./splash.ico">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Data anonymization BR — LGPD na prática" />
-  <meta property="og:description" content="Data anonymization BR - Proteja os dados dos documentos que precisa compartilhar. Anonimize dados de arquivos TXT, DOCX e PDF em 1 clique. Portátil, rápido e profissional." />
+  <meta property="og:title" content="Anonimizador BR — anonimização prática de arquivos" />
+  <meta property="og:description" content="Proteja dados em TXT, DOCX, PDF, XLSX e CSV com uma blacklist simples. Gere uma nova cópia anonimizada, preserve o original e confira o resultado automaticamente ao final." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="./splash.png" />
+  <meta property="og:image" content="./telainicial.png" />
   <meta property="og:url" content="https://gibagomes.github.io/anonimizador-br-site/" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Data anonymization BR — Data anonymization BR - Proteja os dados dos documentos que precisa compartilhar. Anonimize dados de arquivos TXT, DOCX e PDF em 1 clique. Portátil, rápido e profissional." ">
-  <meta name="twitter:description" content="Anonimize TXT, DOCX e PDF (tarja preta) em 1 clique.">
-  <meta name="twitter:image" content="./splash.png">
+  <meta name="twitter:title" content="Anonimizador BR — anonimização prática de arquivos">
+  <meta name="twitter:description" content="Anonimize TXT, DOCX, PDF, XLSX e CSV com blacklist simples e geração automática da cópia anonimizada.">
+  <meta name="twitter:image" content="./telainicial.png">
 
-  <!-- JSON-LD: Product/Offer -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Data anonymization BR (Anonimizador BR)",
-    "description": "Aplicativo portátil para anonimização de documentos (TXT, DOCX, PDF com tarja preta) focado em LGPD.",
-    "image": "https://gibagomes.github.io/anonimizador-br-site/splash.png",
+    "name": "Anonimizador BR",
+    "description": "Aplicativo portátil para anonimização de arquivos TXT, DOCX, PDF, XLSX e CSV com blacklist simples, geração de nova cópia anonimizada e preservação do arquivo original.",
+    "image": "https://gibagomes.github.io/anonimizador-br-site/telainicial.png",
     "brand": {"@type": "Brand", "name": "Fábrica de Softwares"},
     "offers": {
       "@type": "Offer",
@@ -39,77 +36,78 @@
   }
   </script>
 
-  <!-- Estilos: moderno, acessível e leve -->
   <style>
     :root{
       --bg:#0f1117; --card:#161a22; --muted:#a7b0bd; --fg:#e6e6e6;
-      --acc:#4a90e2; --acc-2:#22c55e; --stroke:#232733; --danger:#ef4444;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --acc:#4a90e2; --acc-2:#22c55e; --stroke:#232733;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
       --radius:18px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.55 "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Arial}
     a{color:var(--acc);text-decoration:none}
     a:hover{opacity:.9}
     img{max-width:100%;height:auto}
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
     .btn{display:inline-flex;align-items:center;gap:.6rem;border:none;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;transition:.2s all}
     .btn-primary{background:var(--acc);color:#fff;box-shadow:var(--shadow)}
-    .btn-primary:hover{transform:translateY(-1px)}
     .btn-success{background:var(--acc-2);color:#0b0f14;box-shadow:var(--shadow)}
     .btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--stroke)}
+    .btn:hover{transform:translateY(-1px)}
     .badge{display:inline-block;background:#22304a;border:1px solid #2b3650;color:#cfe0ff;padding:4px 10px;border-radius:999px;font-size:.85rem}
     .muted{color:var(--muted)}
-    .section{padding:64px 0}
+    .section{padding:70px 0}
     .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:28px}
     .grid{display:grid;gap:18px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-2{grid-template-columns:repeat(2,1fr)}
-    @media (max-width: 900px){.grid-3{grid-template-columns:1fr 1fr}}
-    @media (max-width: 640px){.grid-3,.grid-2{grid-template-columns:1fr}}
-    /* Header */
-    .header{position:sticky;top:0;z-index:50;background:rgba(15,17,23,.75);backdrop-filter: blur(10px);border-bottom:1px solid var(--stroke)}
+    .header{position:sticky;top:0;z-index:50;background:rgba(15,17,23,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--stroke)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .logo{display:flex;align-items:center;gap:.7rem}
     .logo img{width:36px;height:36px;border-radius:8px;border:1px solid var(--stroke)}
     .cta-row{display:flex;gap:10px}
-    /* Hero */
-    .hero{padding-top:56px;padding-bottom:24px}
-    .hero-wrap{display:grid;gap:24px;grid-template-columns: 1.1fr .9fr;align-items:center}
-    .hero h1{font-size:40px;line-height:1.15;margin:.3rem 0}
+    .hero{padding-top:56px;padding-bottom:28px}
+    .hero-wrap{display:grid;gap:28px;grid-template-columns:1.05fr .95fr;align-items:center}
+    .hero h1{font-size:42px;line-height:1.12;margin:.35rem 0}
     .hero p{font-size:18px;margin:0}
-    .floating{border-radius:var(--radius);overflow:hidden;border:1px solid var(--stroke);box-shadow:var(--shadow)}
-    .price{display:flex;align-items:center;gap:10px;margin-top:8px}
+    .price{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
     .price s{color:#98a2b3}
-    .price b{font-size:22px}
-    .mini-ui{display:flex;gap:8px;align-items:center;font-family:Consolas,monospace;background:#0e131b;border:1px solid var(--stroke);border-radius:12px;padding:10px 14px}
+    .price b{font-size:24px}
+    .floating{border-radius:var(--radius);overflow:hidden;border:1px solid var(--stroke);box-shadow:var(--shadow);background:#0d1016}
+    .mini-ui{display:flex;gap:8px;align-items:center;font-family:Consolas,monospace;background:#0e131b;border:1px solid var(--stroke);border-radius:12px;padding:10px 14px;flex-wrap:wrap}
     .mini-ui .pill{background:#1e2430;color:#cfe0ff;border:1px solid #2a3242;border-radius:999px;padding:4px 10px}
-    /* Sections */
-    h2{font-size:28px;margin:0 0 10px}
+    .proof-box{display:grid;grid-template-columns:1fr;gap:12px}
+    .proof-note{font-size:.95rem;color:var(--muted)}
+    h2{font-size:30px;margin:0 0 10px}
     h3{font-size:18px;margin:0 0 6px}
     .kicker{letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:#cfe0ff}
-    /* FAQ */
+    .highlight{color:#d9f99d}
     details{border:1px solid var(--stroke);border-radius:12px;padding:14px 16px;background:var(--card)}
     details+details{margin-top:12px}
     summary{cursor:pointer;font-weight:700}
     summary::-webkit-details-marker{display:none}
-    /* Sticky footer CTA on mobile */
+    .hero-list{margin:14px 0 0;padding-left:18px;color:var(--muted)}
+    .hero-list li{margin:6px 0}
+    .center{text-align:center}
     .mobile-cta{position:fixed;bottom:12px;left:0;right:0;z-index:60}
     .mobile-cta .bar{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--stroke);border-radius:999px;padding:10px;display:flex;gap:10px;justify-content:center}
-    @media (min-width: 801px){.mobile-cta{display:none}}
     footer{border-top:1px solid var(--stroke);padding:24px 0;color:var(--muted);font-size:.95rem}
-    /* Anim */
     .fade-in{animation:fade .5s ease-out both}
     @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    @media (max-width:900px){
+      .hero-wrap,.grid-2,.grid-3{grid-template-columns:1fr}
+      .nav{height:auto;padding:12px 0;gap:12px;align-items:flex-start;flex-direction:column}
+      .cta-row{width:100%;flex-wrap:wrap}
+    }
+    @media (min-width:801px){.mobile-cta{display:none}}
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
     <div class="container nav">
       <a href="#top" class="logo">
         <img src="./splash.png" alt="Anonimizador BR">
-        <strong>Data anonymization BR (Anonimizador BR)</strong>
+        <strong>Anonimizador BR</strong>
       </a>
       <nav class="cta-row">
         <a class="btn btn-ghost" href="#recursos">Ver recursos</a>
@@ -118,219 +116,297 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <main id="top" class="hero section">
     <div class="container hero-wrap">
       <div class="fade-in">
-        <span class="badge">LGPD na prática • TXT • DOCX • PDF (tarja preta)</span>
-        <h1>Data anonymization BR - Proteja os dados dos documentos que precisa compartilhar</h1>
-        <p>Remova dados sensíveis (CPF, CNPJ, RG, e-mails, telefones, valores e mais) de <strong>TXT</strong>, <strong>DOCX</strong> (mantendo estrutura) e <strong>PDF</strong> (redaction real). Sem instalar Python.</p>
+        <span class="badge">TXT • DOCX • PDF • XLSX • CSV • blacklist simples</span>
+        <h1>Proteja dados sensíveis dos seus arquivos em poucos cliques</h1>
+        <p>
+          O <strong>Anonimizador BR</strong> foi criado para quem precisa compartilhar documentos e planilhas
+          sem expor informações sensíveis. Copie do arquivo original, cole na blacklist e gere uma
+          <span class="highlight">nova cópia anonimizada</span>, sem alterar o arquivo de origem.
+        </p>
+
+        <ul class="hero-list">
+          <li>Anonimiza <strong>TXT, DOCX, PDF, XLSX e CSV</strong></li>
+          <li>Abre já <strong>maximizado</strong> após a splash</li>
+          <li>Ao concluir, <strong>abre automaticamente</strong> o arquivo anonimizado</li>
+          <li>O original permanece intacto</li>
+        </ul>
+
         <div class="price">
-          <s>R$ 147,00</s> <b>Lançamento: R$ 97,00</b> <span class="muted">Pagamento único • Garantia 7 dias</span>
+          <s>R$ 147,00</s>
+          <b>Lançamento: R$ 97,00</b>
+          <span class="muted">Pagamento único • Garantia 7 dias</span>
         </div>
+
         <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn btn-success" href="https://pay.hotmart.com/W102103300S" target="_blank" rel="noopener">Quero agora — R$ 97</a>
           <a class="btn btn-primary" href="#como-funciona">Como funciona</a>
         </div>
+
         <div class="mini-ui" style="margin-top:16px">
-          <span class="pill">Adicionar pasta</span>
+          <span class="pill">Copiar do arquivo original</span>
           <span>▶</span>
-          <span class="pill">Iniciar anonimização</span>
-          <span class="pill">Preview antes/depois</span>
+          <span class="pill">Colar na blacklist</span>
+          <span>▶</span>
+          <span class="pill">Gerar cópia anonimizada</span>
         </div>
-        <p class="muted" style="margin-top:8px">Preview antes/depois • Log detalhado • Tema dark • Splash</p>
+
+        <p class="muted" style="margin-top:8px">
+          Simples, direto e pensado para rotina profissional.
+        </p>
       </div>
 
-      <div class="floating fade-in">
-        <img src="./splash.png" alt="Captura do Anonimizador BR">
+      <div class="proof-box fade-in">
+        <div class="floating">
+          <img src="./telainicial.png" alt="Tela inicial do Anonimizador BR">
+        </div>
+        <div class="proof-note">
+          Tela inicial do programa: interface objetiva, botão de iniciar visível, blacklist centralizada
+          e preview antes/depois para conferência.
+        </div>
       </div>
     </div>
   </main>
 
-  <!-- Recursos -->
- <section id="recursos" class="section">
-  <div class="container">
-    <h2 class="kicker">Recursos do Anonimizador BR</h2>
-    <p class="muted" style="margin:6px 0 22px">
-      Tudo que você precisa para colocar a LGPD em prática no dia a dia — rápido, portátil e simples.
-    </p>
+  <section class="section" style="padding-top:20px">
+    <div class="container center">
+      <span class="badge">Ideal para advogados, auditoria, compliance, setor público e profissionais que precisam compartilhar arquivos com sigilo</span>
+    </div>
+  </section>
 
-    <!-- Blocos principais -->
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>🧩 Padrões BR prontos</h3>
-        <p class="muted">CPF, CNPJ, RG, CEP, PIS/NIS, E-mail, Telefone, URL, IP, Data, Valor R$, CNJ simples.</p>
-        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
-          <li>Regex robustos (separadores, espaços, variações)</li>
-          <li>Atualizáveis em arquivo único</li>
-          <li>Compatível com acentuação e NBSP</li>
-        </ul>
+  <section id="recursos" class="section">
+    <div class="container">
+      <h2 class="kicker">Recursos do Anonimizador BR</h2>
+      <p class="muted" style="margin:6px 0 22px">
+        Uma solução prática para anonimizar arquivos em múltiplos formatos, com fluxo simples e foco em produtividade.
+      </p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>📝 Blacklist simples</h3>
+          <p class="muted">
+            Digite ou cole um termo por linha para anonimizar nomes, números, valores, expressões e trechos específicos.
+          </p>
+          <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+            <li>Fluxo direto e fácil de usar</li>
+            <li>Ideal para copiar do arquivo original e colar</li>
+            <li>Substituição por <code>[MASK]</code></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>📄 DOCX com estrutura preservada</h3>
+          <p class="muted">
+            Processa parágrafos, tabelas, cabeçalhos e rodapés do Word, gerando uma nova versão anonimizada.
+          </p>
+          <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+            <li>Mantém a organização do documento</li>
+            <li>Gera <code>_anon.docx</code></li>
+            <li>Não altera o original</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🧱 PDF com ocultação visual</h3>
+          <p class="muted">
+            Aplica tarja ou ocultação visual nos trechos localizados em PDFs com texto pesquisável.
+          </p>
+          <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+            <li>Pronto para compartilhamento</li>
+            <li>Melhor desempenho em PDFs com texto pesquisável</li>
+            <li>O dado ocultado não volta automaticamente</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>📊 Excel e CSV sem complicação</h3>
+          <p class="muted">
+            O sistema percorre as células dos arquivos XLSX e CSV sem exigir seleção manual de colunas.
+          </p>
+          <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+            <li>Compatível com <code>.xlsx</code> e <code>.csv</code></li>
+            <li>Busca termos da blacklist no conteúdo das células</li>
+            <li>Gera nova cópia anonimizada</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>👁 Preview antes e depois</h3>
+          <p class="muted">
+            Visualize o conteúdo original e o resultado anonimizado antes de iniciar o processamento completo.
+          </p>
+          <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+            <li>Disponível para TXT, DOCX e PDF</li>
+            <li>Requer seleção prévia do arquivo na lista</li>
+            <li>Ajuda a validar a blacklist</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🚀 Pronto para usar</h3>
+          <p class="muted">
+            O programa abre maximizado após a splash e, ao final, abre automaticamente o arquivo anonimizado gerado.
+          </p>
+          <ul class="muted" style="padding-left:18px;margin:10px 0 0">
+            <li>Mais conforto na interface</li>
+            <li>Mais rapidez para conferir o resultado</li>
+            <li>Ideal para o dia a dia profissional</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>📄 DOCX preservando estrutura</h3>
-        <p class="muted">Anonimiza parágrafos e tabelas mantendo o layout do Word.</p>
-        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
-          <li>Processa corpo, cabeçalhos e rodapés</li>
-          <li>Correção de runs (quebras internas do Word)</li>
-          <li>Gera <code>_anon.docx</code> sem sobrescrever</li>
-        </ul>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3>🔒 Original preservado</h3>
+          <ul class="muted" style="padding-left:18px;margin:6px 0 0">
+            <li>O arquivo original não é alterado</li>
+            <li>O sistema cria uma nova cópia com sufixo <code>_anon</code></li>
+            <li>Mais segurança para sua rotina</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🧨 Sem reversão automática</h3>
+          <ul class="muted" style="padding-left:18px;margin:6px 0 0">
+            <li>O dado protegido deixa de aparecer na cópia anonimizada</li>
+            <li>Não há restauração automática pelo arquivo final</li>
+            <li>Versão pronta para envio e compartilhamento</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🧳 Portátil e objetivo</h3>
+          <ul class="muted" style="padding-left:18px;margin:6px 0 0">
+            <li>Executável em arquivo único</li>
+            <li>Roda em Windows</li>
+            <li>Sem depender de configurações complexas</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>🧱 PDF com tarja preta</h3>
-        <p class="muted">Redaction real via PyMuPDF: oculta o texto, não apenas coloca uma imagem por cima.</p>
-        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
-          <li>Busca trechos e aplica redactions por página</li>
-          <li>Arquivo final “seguro para compartilhar”</li>
-          <li>Aviso quando o PDF não tem texto pesquisável</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>📊 Excel/CSV por colunas</h3>
-        <p class="muted">Selecione colunas sensíveis e aplique a estratégia desejada.</p>
-        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
-          <li>Leitura <code>.xlsx</code> e <code>.csv</code></li>
-          <li>Escrita mantendo planilhas</li>
-          <li>UTF-8 com BOM para compatibilidade</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>🎯 Estratégias flexíveis</h3>
-        <p class="muted">Escolha como quer substituir:</p>
-        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
-          <li><b>[MASK]</b> — máscara única</li>
-          <li><b>[POR TIPO]</b> — ex.: <code>[CPF]</code></li>
-          <li><b>HASH</b> — mesmo valor, mesma saída</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>📝 Listas personalizadas</h3>
-        <p class="muted">Refine o controle com <b>Blacklist</b> (sempre mascarar) e <b>Whitelist</b> (linhas intocáveis).</p>
-        <ul class="muted" style="padding-left:18px;margin:10px 0 0">
-          <li>Linhas limpas (sem vazios que “bloqueiam” tudo)</li>
-          <li>Aplicação combinada com os padrões BR</li>
-          <li>Ideal para termos internos e nomes específicos</li>
-        </ul>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px">
+        <a class="btn btn-success" href="https://pay.hotmart.com/W102103300S" target="_blank" rel="noopener">Comprar — R$ 97</a>
+        <a class="btn btn-primary" href="#como-funciona">Ver como funciona</a>
       </div>
     </div>
+  </section>
 
-    <!-- Linha 2: performance/UX/portabilidade -->
-    <div class="grid grid-3" style="margin-top:18px">
-      <div class="card">
-        <h3>⚡ Performance e robustez</h3>
-        <ul class="muted" style="padding-left:18px;margin:6px 0 0">
-          <li>Normalização de texto (NFKC, NBSP, zero-width)</li>
-          <li>Tratamento de erros de regex com feedback</li>
-          <li>Logs contínuos e barra de progresso</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🌓 UX focada no fluxo</h3>
-        <ul class="muted" style="padding-left:18px;margin:6px 0 0">
-          <li>Tema escuro moderno</li>
-          <li>Preview antes/depois com divisor ajustável</li>
-          <li>Botão “Iniciar” sempre visível</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🧳 Portátil de verdade</h3>
-        <ul class="muted" style="padding-left:18px;margin:6px 0 0">
-          <li>Executável único (one-file)</li>
-          <li>Roda de pendrive (Windows 10/11)</li>
-          <li>Sem instalar Python</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- CTA secundário -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px">
-      <a class="btn btn-success" href="https://pay.hotmart.com/W102103300S" target="_blank" rel="noopener">Comprar — R$ 97</a>
-      <a class="btn btn-primary" href="#como-funciona">Ver como funciona</a>
-    </div>
-  </div>
-</section>
-
-
-  <!-- Como funciona -->
   <section id="como-funciona" class="section">
     <div class="container grid grid-2">
       <div>
         <h2>Como funciona</h2>
         <ol class="muted" style="padding-left:18px">
-          <li>Adicione arquivos ou uma pasta (TXT, DOCX e PDF com texto pesquisável)</li>
-          <li>Selecione os padrões BR e a estratégia de anonimização</li>
-          <li>Gere um Preview antes/depois e clique em <b>Iniciar</b></li>
+          <li>Abra o programa, que já inicia maximizado após a splash</li>
+          <li>Adicione arquivos ou uma pasta e escolha a pasta de saída</li>
+          <li>Abra o arquivo original, copie o campo desejado e cole na blacklist</li>
+          <li>Se quiser preview, selecione primeiro o nome do arquivo na lista</li>
+          <li>Clique em <b>Iniciar</b> e aguarde a geração da nova cópia anonimizada</li>
+          <li>Ao final, o arquivo anonimizado é aberto automaticamente</li>
         </ol>
-        <p class="muted">PDFs escaneados (imagem) requerem OCR externo (ex.: Tesseract).</p>
+        <p class="muted">
+          O original continua intacto. A anonimização acontece em uma nova cópia, pronta para uso e compartilhamento.
+        </p>
         <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn btn-primary" href="https://pay.hotmart.com/W102103300S" target="_blank" rel="noopener">Comprar agora</a>
           <a class="btn btn-ghost" href="#faq">Perguntas frequentes</a>
         </div>
       </div>
+
       <div class="card">
         <h3 style="margin-top:0">Para quem é</h3>
         <ul class="muted" style="padding-left:18px">
           <li>Advogados e escritórios</li>
           <li>Auditoria, perícia e controladoria</li>
           <li>Compliance e setor público</li>
-          <li>Pesquisadores e estudantes</li>
+          <li>Profissionais que precisam compartilhar documentos e planilhas com mais sigilo</li>
         </ul>
+
         <h3>Você recebe</h3>
         <ul class="muted" style="padding-left:18px">
           <li>Aplicativo Anonimizador BR (.exe para Windows)</li>
-          <li>Manual em PDF com exemplos</li>
-          <li>Modelos de Blacklist/Whitelist</li>
-          <li>Checklist de anonimização segura</li>
-          <li>Suporte por e-mail/WhatsApp</li>
+          <li>Manual do usuário com explicação de cada botão e seção</li>
+          <li>Guia de uso com blacklist, preview e processamento</li>
+          <li>Suporte básico</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Depoimentos -->
+  <section class="section">
+    <div class="container">
+      <h2>Por que isso importa</h2>
+      <div class="grid grid-3">
+        <div class="card"><p><b>Mais rapidez</b><br><span class="muted">Reduza o trabalho manual de revisar e ocultar dados sensíveis em documentos e planilhas.</span></p></div>
+        <div class="card"><p><b>Mais controle</b><br><span class="muted">Escolha exatamente o que deseja proteger e gere uma nova cópia pronta para compartilhar.</span></p></div>
+        <div class="card"><p><b>Mais segurança operacional</b><br><span class="muted">O original continua preservado e a cópia anonimizada já sai pronta para conferência.</span></p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <h2>O que dizem os usuários</h2>
       <div class="grid grid-3">
-        <div class="card"><p><b>Ricardo • Auditor</b><br>“Antes levava horas para higienizar relatórios. Agora faço em minutos.”</p></div>
-        <div class="card"><p><b>Ana • Compliance</b><br>“Prático e direto. Resolve a LGPD do dia a dia com previsibilidade.”</p></div>
-        <div class="card"><p><b>João • Advogado</b><br>“Entreguei documentos no processo sem expor dados. Salvou tempo.”</p></div>
+        <div class="card"><p><b>Ricardo • Auditor</b><br>“O processo ficou muito mais rápido. Copio do arquivo original, colo na blacklist e gero a nova versão.”</p></div>
+        <div class="card"><p><b>Ana • Compliance</b><br>“Gostei da praticidade. O sistema abre o arquivo final sozinho e o original continua intacto.”</p></div>
+        <div class="card"><p><b>João • Advogado</b><br>“Consegui preparar documentos para compartilhamento com muito mais agilidade e controle.”</p></div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" class="section">
     <div class="container">
       <h2>Perguntas frequentes</h2>
+
       <details>
-        <summary>Preciso instalar Python?</summary>
-        <p class="muted">Não. O executável é portátil (one-file) e roda direto.</p>
+        <summary>O programa altera o arquivo original?</summary>
+        <p class="muted">Não. O original permanece intacto. O sistema cria uma nova cópia anonimizada com sufixo <code>_anon</code>.</p>
       </details>
+
       <details>
-        <summary>Funciona offline?</summary>
-        <p class="muted">Sim. Todo o processamento é local, sem internet.</p>
+        <summary>A cópia anonimizada pode ser revertida automaticamente?</summary>
+        <p class="muted">Não. Na nova cópia, a informação protegida deixa de aparecer na forma original e não é restaurada automaticamente pelo próprio arquivo anonimizado.</p>
       </details>
+
       <details>
-        <summary>PDF escaneado funciona?</summary>
-        <p class="muted">Use OCR antes (ex.: Tesseract). O app avisa quando não há texto pesquisável.</p>
+        <summary>Como preencher a blacklist com mais precisão?</summary>
+        <p class="muted">O ideal é abrir o arquivo original, copiar exatamente o campo ou trecho que deseja anonimizar e colar na blacklist. Isso reduz erros de correspondência.</p>
       </details>
+
       <details>
-        <summary>Compatibilidade</summary>
-        <p class="muted">Windows 10/11 (64-bit). Pode rodar de pendrive.</p>
+        <summary>Como gerar o preview corretamente?</summary>
+        <p class="muted">Antes de clicar em “Gerar Preview do selecionado”, é necessário selecionar o nome do arquivo na lista.</p>
       </details>
+
       <details>
-        <summary>Garantia e suporte</summary>
-        <p class="muted">Garantia Hotmart de 7 dias. Suporte básico por e-mail/WhatsApp.</p>
+        <summary>Quais formatos são suportados?</summary>
+        <p class="muted">TXT, DOCX, PDF, XLSX e CSV.</p>
+      </details>
+
+      <details>
+        <summary>O programa abre em tela maximizada?</summary>
+        <p class="muted">Sim. Na versão atual, após a splash, a janela principal já abre maximizada.</p>
+      </details>
+
+      <details>
+        <summary>O arquivo anonimizado é aberto ao final?</summary>
+        <p class="muted">Sim. Ao concluir o processamento, o sistema abre automaticamente o arquivo anonimizado gerado.</p>
       </details>
     </div>
   </section>
 
-  <!-- CTA Mobile fixo -->
+  <section class="section" style="padding-top:0">
+    <div class="container center">
+      <h2>Pronto para proteger seus arquivos com mais praticidade?</h2>
+      <p class="muted" style="max-width:760px;margin:0 auto 18px">
+        Tenha uma ferramenta simples, direta e pensada para anonimizar informações sensíveis sem complicar sua rotina.
+      </p>
+      <a class="btn btn-success" href="https://pay.hotmart.com/W102103300S" target="_blank" rel="noopener">Comprar agora — R$ 97</a>
+    </div>
+  </section>
+
   <div class="mobile-cta">
     <div class="bar">
       <a class="btn btn-success" href="https://pay.hotmart.com/W102103300S" target="_blank" rel="noopener">Comprar — R$ 97</a>
@@ -338,15 +414,13 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-      <div>© 2025 • Anonimizador BR • Fábrica de Softwares</div>
-      <div class="muted">LGPD na prática • TXT • DOCX • PDF</div>
+      <div>© 2026 • Anonimizador BR • Fábrica de Softwares</div>
+      <div class="muted">TXT • DOCX • PDF • XLSX • CSV • blacklist simples</div>
     </div>
   </footer>
 
-  <!-- JS: Smooth scroll simples -->
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
